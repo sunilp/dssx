@@ -11,6 +11,7 @@ import { LandingComponent } from './landing/landing.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { FileDropModule } from 'ngx-file-drop';
+import { PapaParseGlobalConfig,PapaParseModule } from 'ngx-papaparse';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,17 @@ import { FileDropModule } from 'ngx-file-drop';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    FileDropModule
+    FileDropModule,
+    PapaParseModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'PapaParseGlobalConfig',
+      useValue: <PapaParseGlobalConfig> {
+        workerScriptPath: 'assets/papaparse.min.js'
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
