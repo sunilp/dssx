@@ -31,6 +31,16 @@
                 </tr>
             </tbody>
         </table>
+
+
+        <table class="table" *ngIf="csvfile.headers">
+
+            <tbody class="upload-name-style">
+                <tr *ngFor="let header of csvfile.headers">
+                    <td><strong>{{ header }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
